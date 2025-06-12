@@ -35,6 +35,7 @@ img{
 }
 img:hover{
     border: 3px solid whitesmoke;
+    cursor: pointer;
 }
 .text{
     height: 400px;
@@ -48,9 +49,9 @@ img:hover{
     font-size: 40px;
 }
 .hero{
-    font-family: cursive;
-    font-size: 60px;
+    font-family: serif;
     font-variant-caps:petite-caps;
+    font-size: 70px;
 }
 .education{
     height: 350px;
@@ -62,6 +63,12 @@ img:hover{
     color:darkblue;
     margin-top: 10px;
     font-size: 30px;
+}
+.project img{
+    width: 26%;
+}
+.project .big{
+    width: 60%;
 }
 .footer{
     height:500px;
