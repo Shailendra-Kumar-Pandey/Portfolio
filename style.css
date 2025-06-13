@@ -19,8 +19,12 @@ body{
         font-variant-caps:petite-caps;
 
 }
+.container{
+    width: 100%;
+    height: 100%;
+}
 .cover{
-    height: 500px;
+    height: 30%;
     background-color: rgba(9, 9, 240, 0.281);
 }
 img{
@@ -39,14 +43,13 @@ img:hover{
 }
 .text{
     height: 400px;
-    width: 1000px;
+    width:  74%;
     display: inline;
     position: absolute;
     margin-top: 180px;
-    font-size: xx-large;
+    font-size: 2em;
     text-align: justify ;
     color: darkblue;
-    font-size: 40px;
 }
 .hero{
     font-family: serif;
