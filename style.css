@@ -74,7 +74,7 @@ img:hover{
     width: 60%;
 }
 .footer{
-    height:500px;
+    height:100%;
     margin-top: 10px;
     margin-bottom: 10px;
     background-color: rgba(9, 9, 240, 0.281);
@@ -84,4 +84,45 @@ h3{
     padding: 20px;
     font-size: 50px;
     color:darkblue;
+}
+a{
+    text-decoration: none;
+    color: darkblue;
+}
+
+h5{
+    padding: 10px;
+    font-size: 25px;
+    color:darkblue;
+}
+a:hover,h5:hover, .footer h3:hover{
+    color: whitesmoke;
+    cursor: pointer;
+}
+.lift{
+    text-align: left;
+    padding-left: 250px;
+}
+.right{
+    text-align: right;
+    padding-right: 250px;
+}
+.center{
+    text-align: center;
+}
+i{
+   font-size: 30px;
+}
+iframe{
+    width:700px;
+    height: 300px;
+    border: 2px solid darkblue;
+    border-radius: 10px;
+    display: block;
+    margin:auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+iframe:hover{
+    border: 2px solid whitesmoke;
 }
