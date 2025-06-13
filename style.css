@@ -57,15 +57,15 @@ img:hover{
     height: 350px;
 }
 .skill{
-    height: 190px;
+    height: 200px;
 }
 .education p,.skill p {
     color:darkblue;
-    margin-top: 10px;
+    padding-top: 10px;
     font-size: 30px;
 }
 .project img{
-    width: 26%;
+    width: 360px;
 }
 .project .big{
     width: 60%;
