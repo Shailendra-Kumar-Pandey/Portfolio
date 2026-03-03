@@ -71,14 +71,12 @@ function App() {
             <a
               href="https://github.com/Shailendra-Kumar-Pandey"
               target="_blank"
-              rel="noreferrer"
             >
               <FaGithub />
             </a>
             <a
               href="https://www.linkedin.com/in/shailendra-kumar-pandey"
               target="_blank"
-              rel="noreferrer"
             >
               <FaLinkedin />
             </a>
@@ -100,7 +98,7 @@ function App() {
             <div className="column left">
               {/* Replace src with your actual image */}
               <img
-                src="./pubilc/Jeetu.png"
+                src="../public/Hero.png"
                 alt="profile"
               />
             </div>
@@ -117,7 +115,7 @@ function App() {
                 adds strength in project coordination, client communication, and
                 deadline-driven delivery.
               </p>
-              <a src="../pubilc/resume.pdf" className="btn">
+              <a href="../public/Shailendra_Kumar_Pandey_Resume.pdf" className="btn" target="_blank">
                 Download CV
               </a>
             </div>
@@ -132,9 +130,15 @@ function App() {
           <div className="skills-content">
             {[
               "HTML5 & CSS3:90",
-              "JavaScript:80",
-              "React JS:75",
-              "Bootstrap:85",
+              "JavaScript:95",
+              "React JS:90",
+              "Bootstrap & Tailwind CSS:80",
+              "Node JS:90",
+              "MongoDB:90",
+              "Express:85",
+              "AI Integration:85",
+              "Git and GitHub:80",
+              "API Development:95",
             ].map((skill, index) => {
               const [name, percent] = skill.split(":");
               return (
@@ -158,18 +162,38 @@ function App() {
         <div className="container">
           <h2 className="section-title">Portfolio</h2>
           <div className="portfolio-grid">
-            {[1, 2, 3].map((item) => (
-              <div className="portfolio-item" key={item}>
+            <div className="portfolio-item" >
                 <img
-                  src={`https://via.placeholder.com/400x300?text=Project+${item}`}
-                  alt={`Project ${item}`}
+                  src={`../public/Project_1.jpg`}
+                  alt={`Project 1`}
                 />
                 <div className="overlay">
-                  <h3>Project {item}</h3>
+                  <h3> Legal App with AI</h3>
                   <p>Web Application</p>
                 </div>
               </div>
-            ))}
+
+              <div className="portfolio-item" >
+                <img
+                  src={`../public/Project_2.jpg`}
+                  alt={`Project 2`}
+                />
+                <div className="overlay">
+                  <h3> E-Commerce App</h3>
+                  <p>Web Application</p>
+                </div>
+              </div>
+
+              <div className="portfolio-item" >
+                <img
+                  src={`../public/Project_3.jpg`}
+                  alt={`Project 3`}
+                />
+                <div className="overlay">
+                  <h3> Currency Converter App</h3>
+                  <p>Web Application</p>
+                </div>
+              </div>
           </div>
         </div>
       </section>
@@ -183,10 +207,10 @@ function App() {
               <h3>Get In Touch</h3>
               <p>Available for freelance work and full-time opportunities.</p>
               <div className="info-item">
-                <span>Email: shailendra@example.com</span>
+                <span>Email: shailendrakr2010@gmail.com</span>
               </div>
               <div className="info-item">
-                <span>Phone: +123 456 7890</span>
+                <span>Phone: +91 98066 38963</span>
               </div>
             </div>
             <form className="contact-form">
@@ -204,8 +228,8 @@ function App() {
       {/* Footer */}
       <footer>
         <span>
-          Created By <a href="#">Shailendra</a> |{" "}
-          <span className="far fa-copyright"></span> 2024 All rights reserved.
+          Created By <a href="../public/Shailendra_Kumar_Pandey_Resume.pdf" target="_blank" style={{cursor:"pointer"}}>Shailendra Pandey</a> |{" "}
+          <span className="far fa-copyright"></span> 2026 All rights reserved.
         </span>
       </footer>
     </div>
