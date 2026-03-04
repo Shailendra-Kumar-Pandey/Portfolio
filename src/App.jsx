@@ -20,6 +20,7 @@ function App() {
       email: "",
       message: "",
   });
+  const [send, setSend] = useState(false);
 
 
   const handleClick = () => setClick(!click);
@@ -45,19 +46,15 @@ function App() {
     })
     .then((res) => res.json())
     .then((data) => {
-        console.log(data);
-        alert(data.massage);
+        // console.log(data);
+        setSend(true);       
+        setEmail({name: '', email: '', message: ''})
+
     })
    .catch((err) => {
         console.error(err);
         alert("An error occurred while sending the email");
    });
-
-   setEmail({
-            name: "",
-            email: "",
-            message: "",
-        })
   }
 
   return (
@@ -141,9 +138,8 @@ function App() {
           <h2 className="section-title">About Me</h2>
           <div className="about-content">
             <div className="column left">
-              {/* Replace src with your actual image */}
               <img
-                src="../public/Hero.png"
+                src="/Hero.png"
                 alt="profile"
               />
             </div>
@@ -209,7 +205,7 @@ function App() {
           <div className="portfolio-grid">
             <div className="portfolio-item" >
                 <img
-                  src={`../public/Project_1.jpg`}
+                  src={`/Project_1.jpg`}
                   alt={`Project 1`}
                 />
                 <div className="overlay">
@@ -220,7 +216,7 @@ function App() {
 
               <div className="portfolio-item" >
                 <img
-                  src={`../public/Project_2.jpg`}
+                  src={`/Project_2.jpg`}
                   alt={`Project 2`}
                 />
                 <div className="overlay">
@@ -231,7 +227,7 @@ function App() {
 
               <div className="portfolio-item" >
                 <img
-                  src={`../public/Project_3.jpg`}
+                  src={`/Project_3.jpg`}
                   alt={`Project 3`}
                 />
                 <div className="overlay">
@@ -265,7 +261,9 @@ function App() {
               <button type="submit" className="btn" onClick={()=>{
                 handleSubmit()
               }}>
-                Send Message
+                {
+                  send ? "Message Sent" : "Send Message"
+                }
               </button>
             </div>
           </div>
