@@ -1,19 +1,19 @@
 import nodemailer from 'nodemailer';
-
+import process from 'process'
 
 const emailRecever = async (subject, text)=>{
 
   let transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: "shailendrakr2026@gmail.com",
+    user: process.env.emailUser,
     pass: process.env.pass,
   },
 });
 
   const mailOption = {
-    from : 'shailendrakr2026@gmail.com',
-    to : 'shailendrakr2010@gmail.com',
+    from : process.env.emailUser,
+    to : process.env.emailSender,
     subject,
     text
   }

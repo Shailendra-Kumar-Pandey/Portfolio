@@ -11,12 +11,54 @@ import {
   FaTwitter,
   FaFacebook,
 } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa6";
 
 function App() {
   const [click, setClick] = useState(false);
+  const [email, setEmail] = useState({
+      name: "",
+      email: "",
+      message: "",
+  });
+
 
   const handleClick = () => setClick(!click);
   const closeMenu = () => setClick(false);
+
+  function handleSubmit() {
+        if(!email.name || !email.email || !email.message){
+      alert("Please fill all the fields");
+      return;
+    }
+
+    if(!email.email.includes("@") || !email.email.includes(".")){
+      alert("Please enter a valid email");
+      return;
+    }
+
+    fetch("http://127.0.0.1:5050/email/sendMail", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body:JSON.stringify(email),
+    })
+    .then((res) => res.json())
+    .then((data) => {
+        console.log(data);
+        alert(data.massage);
+    })
+   .catch((err) => {
+        console.error(err);
+        alert("An error occurred while sending the email");
+   });
+
+   setEmail({
+            name: "",
+            email: "",
+            message: "",
+        })
+  }
 
   return (
     <div className="App">
@@ -24,7 +66,7 @@ function App() {
       <nav className="navbar">
         <div className="navbar-container container">
           <a href="#home" className="navbar-logo" onClick={closeMenu}>
-            Shailendra
+            <FaBriefcase />
           </a>
           <div className="menu-icon" onClick={handleClick}>
             {click ? <FaTimes /> : <FaBars />}
@@ -75,13 +117,16 @@ function App() {
               <FaGithub />
             </a>
             <a
-              href="https://www.linkedin.com/in/shailendra-kumar-pandey"
+              href="https://www.linkedin.com/in/shailendra-kumar-pandey/"
               target="_blank"
             >
               <FaLinkedin />
             </a>
-            <a href="https://twitter.com" target="_blank" rel="noreferrer">
+            <a href="https://www.facebook.com/shailendra.pandey.3557/" target="_blank" rel="noreferrer">
               <FaFacebook />
+            </a>
+            <a href="https://www.instagram.com/shailendra_pandey_g" target="_blank" rel="noreferrer">
+              <FaInstagram />
             </a>
           </div>
           <a href="#contact" className="btn">
@@ -213,14 +258,16 @@ function App() {
                 <span>Phone: +91 98066 38963</span>
               </div>
             </div>
-            <form className="contact-form">
-              <input type="text" placeholder="Name" />
-              <input type="email" placeholder="Email" />
-              <textarea placeholder="Message"></textarea>
-              <button type="submit" className="btn">
+            <div className="contact-form">
+              <input type="text" placeholder="Name" onChange={(e)=>{setEmail({...email, name: e.target.value})}} />
+              <input type="email" placeholder="Email" onChange={(e)=>{setEmail({...email, email: e.target.value})}} />
+              <textarea placeholder="Message" onChange={(e)=>{setEmail({...email, message: e.target.value})}}></textarea>
+              <button type="submit" className="btn" onClick={()=>{
+                handleSubmit()
+              }}>
                 Send Message
               </button>
-            </form>
+            </div>
           </div>
         </div>
       </section>

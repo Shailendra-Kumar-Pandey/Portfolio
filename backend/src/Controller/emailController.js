@@ -3,15 +3,16 @@ import emailRecever from "../utility/emailRecever.js";
 
 export const sendMailController = async (req, res)=>{
 
-    let {subject, massage} = req.body;
+    let {name, email, massage} = req.body;
 
-    if(!subject || !massage){
-        return res.status(404).json({massage : "All Field Required.."})
-    }
+    // if(!name || !email || !massage){
+    //     return res.status(404).json({massage : "All Field Required.."})
+    // }
     
     try {
         
-         let data = await emailRecever(subject, massage);
+        let subject = name + " " + email;
+        let data = await emailRecever(subject, massage);
 
          return res.status(201).json({
             massage : "Massage send Successfully...",
