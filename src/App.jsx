@@ -37,7 +37,7 @@ function App() {
       return;
     }
 
-    fetch("http://127.0.0.1:5050/email/sendMail", {
+    fetch("https://portfolio-backend-q7aa.onrender.com/email/sendMail", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
