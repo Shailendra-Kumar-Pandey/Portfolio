@@ -115,7 +115,7 @@ function App() {
         <div className="hero-content">
           <h1>Shailendra Kumar Pandey</h1>
           <p>
-            I'm a <span className="animate">MERN Stack Developer</span>
+            I'm a <span className="animate">Software Developer</span>
           </p>
           <div className="social-links">
             <a
@@ -157,10 +157,10 @@ function App() {
             <div className="column right">
               <div className="text">
                 I'm Shailendra and I'm a{" "}
-                <span className="typing-2">AI + MERN Stack Developer</span>
+                <span className="typing-2">AI + Software Developer</span>
               </div>
               <p>
-                MERN Stack Developer with hands-on experience building
+                Software Developer with hands-on experience building
                 full-stack web applications, RESTful APIs, and AI-integrated
                 systems. Adept at translating business requirements into
                 scalable, maintainable code. Background in operations management
@@ -184,6 +184,9 @@ function App() {
               "HTML5 & CSS3:90",
               "JavaScript:95",
               "React JS:90",
+              "JSX:90",
+              "Tailwind CSS:85",
+              "Typescript:70",
               "Bootstrap & Tailwind CSS:80",
               "Node JS:90",
               "MongoDB:90",
