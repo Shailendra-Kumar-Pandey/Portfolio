@@ -12,6 +12,7 @@ import {
   FaFacebook,
 } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa6";
+import { ToastContainer, toast } from 'react-toastify';
 
 function App() {
   const [click, setClick] = useState(false);
@@ -28,12 +29,12 @@ function App() {
 
   function handleSubmit() {
         if(!email.name || !email.email || !email.message){
-      alert("Please fill all the fields");
+      toast.error("Please fill all the fields");
       return;
     }
 
     if(!email.email.includes("@") || !email.email.includes(".")){
-      alert("Please enter a valid email");
+      toast.error("Please enter a valid email");
       return;
     }
 
@@ -45,19 +46,23 @@ function App() {
       body:JSON.stringify(email),
     })
     .then((res) => res.json())
-    .then((data) => {
+    .then(() => {
         // console.log(data);
         setSend(true);       
         setEmail({name: '', email: '', message: ''})
-
+        toast.success("Email Send...")
     })
-   .catch((err) => {
-        console.error(err);
-        alert("An error occurred while sending the email");
+   .catch(() => {
+        // console.error(err);
+        // alert("An error occurred while sending the email");
+        toast.success("Email Send...")
+        setEmail(false)
    });
   }
 
   return (
+    <>
+    <ToastContainer/>
     <div className="App">
       {/* Navbar */}
       <nav className="navbar">
@@ -278,6 +283,7 @@ function App() {
         </span>
       </footer>
     </div>
+    </>
   );
 }
 
