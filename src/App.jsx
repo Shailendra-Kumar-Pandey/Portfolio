@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import {
   FaHome,
   FaUser,
@@ -16,6 +16,9 @@ import { ToastContainer, toast } from 'react-toastify';
 
 function App() {
   const [click, setClick] = useState(false);
+  const refName = useRef("")
+  const refemail = useRef("")
+  const refdata = useRef("")
   const [email, setEmail] = useState({
       name: "",
       email: "",
@@ -56,7 +59,10 @@ function App() {
         // console.error(err);
         // alert("An error occurred while sending the email");
         toast.success("Email Send...")
-        setEmail(false)
+        refName.current.value = ""
+        refemail.current.value = ""
+        refdata.current.value = ""
+        setSend(false)
    });
   }
 
@@ -260,9 +266,9 @@ function App() {
               </div>
             </div>
             <div className="contact-form">
-              <input type="text" placeholder="Name" onChange={(e)=>{setEmail({...email, name: e.target.value})}} />
-              <input type="email" placeholder="Email" onChange={(e)=>{setEmail({...email, email: e.target.value})}} />
-              <textarea placeholder="Message" onChange={(e)=>{setEmail({...email, message: e.target.value})}}></textarea>
+              <input type="text" ref={refName} placeholder="Name" onChange={(e)=>{setEmail({...email, name: e.target.value})}} />
+              <input type="email" ref={refemail} placeholder="Email" onChange={(e)=>{setEmail({...email, email: e.target.value})}} />
+              <textarea placeholder="Message" ref={refdata} onChange={(e)=>{setEmail({...email, message: e.target.value})}}></textarea>
               <button type="submit" className="btn" onClick={()=>{
                 handleSubmit()
               }}>
