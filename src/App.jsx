@@ -167,7 +167,7 @@ function App() {
                 adds strength in project coordination, client communication, and
                 deadline-driven delivery.
               </p>
-              <a href="../public/Shailendra_Kumar_Pandey_Resume.pdf" className="btn" target="_blank">
+              <a href="/Shailendra_Kumar_Pandey_Resume.pdf" className="btn" target="_blank">
                 Download CV
               </a>
             </div>
