@@ -196,7 +196,11 @@ function App() {
                 <div className="timeline-content">
                   <span className="timeline-date">April 2026 - Present</span>
                   <h3 className="timeline-title">Full Stack Developer</h3>
-                  <div className="timeline-company">Vitric Business Solution Pvt. Ltd. | Nagpur</div>
+                  <div className="timeline-company">
+                    <a href="https://vitricsolutions.com/" target="_blank" rel="noopener noreferrer">
+                      Vitric Business Solution Pvt. Ltd. | Nagpur
+                    </a>
+                  </div>
                   <div className="timeline-desc">
                     <ul>
                       <li>Develop frontend and backend modules using React.js, Node.js, Express.js, and MongoDB.</li>
@@ -211,7 +215,11 @@ function App() {
                 <div className="timeline-content">
                   <span className="timeline-date">Sep 2025 - Mar 2026</span>
                   <h3 className="timeline-title">Full Stack Developer Intern</h3>
-                  <div className="timeline-company">Manisha Systems | Nagpur</div>
+                  <div className="timeline-company">
+                    <a href="https://manishasystems.org/" target="_blank" rel="noopener noreferrer">
+                      Manisha Systems | Nagpur
+                    </a>
+                  </div>
                   <div className="timeline-desc">
                     <ul>
                       <li>Specialized in AI-Powered Web Application Development.</li>
