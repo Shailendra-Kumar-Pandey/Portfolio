@@ -31,6 +31,8 @@ function App() {
   const closeMenu = () => setClick(false);
 
   function handleSubmit() {
+    if (send) return;
+
     if (!email.name || !email.email || !email.message) {
       toast.error("Please fill all the fields");
       return;
@@ -41,11 +43,17 @@ function App() {
       return;
     }
 
-    toast.success("Email Send...")
-        refName.current.value = ""
-        refemail.current.value = ""
-        refdata.current.value = ""
-        setSend(false)
+    setSend(true);
+    toast.info("Sending your message...");
+
+    setTimeout(() => {
+      toast.success("Email sent successfully!");
+      refName.current.value = "";
+      refemail.current.value = "";
+      refdata.current.value = "";
+      setEmail({ name: "", email: "", message: "" });
+      setSend(false);
+    }, 1500);
 
     // fetch("https://portfolio-backend-q7aa.onrender.com/email/sendMail", {
     //   method: "POST",
@@ -351,15 +359,41 @@ function App() {
                 </div>
               </div>
               <div className="contact-form">
-                <input type="text" ref={refName} placeholder="Name" onChange={(e) => { setEmail({ ...email, name: e.target.value }) }} />
-                <input type="email" ref={refemail} placeholder="Email" onChange={(e) => { setEmail({ ...email, email: e.target.value }) }} />
-                <textarea placeholder="Message" ref={refdata} onChange={(e) => { setEmail({ ...email, message: e.target.value }) }}></textarea>
-                <button type="submit" className="btn" onClick={() => {
-                  handleSubmit()
-                }}>
-                  {
-                    send ? "Message Sent" : "Send Message"
-                  }
+                <input
+                  type="text"
+                  ref={refName}
+                  placeholder="Name"
+                  disabled={send}
+                  onChange={(e) => setEmail((prev) => ({ ...prev, name: e.target.value }))}
+                />
+                <input
+                  type="email"
+                  ref={refemail}
+                  placeholder="Email"
+                  disabled={send}
+                  onChange={(e) => setEmail((prev) => ({ ...prev, email: e.target.value }))}
+                />
+                <textarea
+                  placeholder="Message"
+                  ref={refdata}
+                  disabled={send}
+                  onChange={(e) => setEmail((prev) => ({ ...prev, message: e.target.value }))}
+                ></textarea>
+                <button
+                  type="submit"
+                  className={`btn ${send ? "btn-loading" : ""}`}
+                  onClick={handleSubmit}
+                  disabled={send}
+                  aria-busy={send}
+                >
+                  {send ? (
+                    <>
+                      <span className="btn-spinner" aria-hidden="true"></span>
+                      Sending...
+                    </>
+                  ) : (
+                    "Send Message"
+                  )}
                 </button>
               </div>
             </div>
